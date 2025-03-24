@@ -4,11 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite", 
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "concurrently": "^9.1.2"
+  },
+  "dependencies":{
+    "face-api.js": "^0.22.2"
   }
 }
