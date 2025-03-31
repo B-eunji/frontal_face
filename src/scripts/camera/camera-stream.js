@@ -1,5 +1,6 @@
 import { startFaceDetection } from './face-detection.js';
-import { loadModels, modelLoaded } from '/scripts/face-api/model-load.js';
+import { loadModels, modelLoaded } from '../face-api/model-load.js';
+import * as faceapi from 'face-api.js';
 
 //웹 캠 스트리밍
 export async function setupCamera(videoElement) {

@@ -1,5 +1,16 @@
 /* 얼굴 인식 카메라 페이지 css */
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a8c4ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
 .container {
     text-align: center;
     position: relative;

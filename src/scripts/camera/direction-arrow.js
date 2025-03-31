@@ -7,10 +7,10 @@ export function showDirectionArrow(direction) {
     }
   
     const directionMap = {
-      'down_left': './images/arrow-down-left.png',
-      'down_right': './images/arrow-down-right.png',
-      'left': './images/arrow-left.png',
-      'right': './images/arrow-right.png',
+      'down_left': '/images/arrow-down-left.png',
+      'down_right': '/images/arrow-down-right.png',
+      'left': '/images/arrow-left.png',
+      'right': '/images/arrow-right.png',
     };
   
     arrow.src = directionMap[direction];

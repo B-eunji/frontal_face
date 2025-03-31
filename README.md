@@ -52,6 +52,11 @@ git_graduation_project
 - Python: `3.11.x`
 - 패키지 매니저: `npm` 또는 `pnpm`
 
+### Backend (FastAPI)
+1. 가상환경 진입
+2. 실행: uvicorn src.algorithm.face_detection:app --reload
+3. POST /detect-face 로 이미지 업로드
+
 ### 📌 프로젝트 환경 변수 설정
 1. `.env` 파일을 생성하고 다음 형식으로 환경 변수를 추가하세요.
 NODE_ENV=development API_BASE_URL=http://localhost:8000 FRONTEND_BASE_URL=http://localhost:3000
