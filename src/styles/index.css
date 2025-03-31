@@ -1,0 +1,133 @@
+/* 메인 페이지 css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a8c4ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4568ff;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+h3 {
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+}
+
+.instructions {
+    margin: 20px 0;
+}
+
+.instructions p {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 10px;
+    position: relative;
+}
+
+.instructions2 {
+    margin: 20px 0;
+}
+
+.instructions2 p {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 10px;
+    position: relative;
+}
+
+/*/ 말풍선 꼬리 /*/
+.left-instruction {
+    background-color: #ffcac4;
+}
+
+.left-instruction::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 3.6%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #ffcac4;
+    clip-path: polygon(100% 0, 0% 0%, 0 100%);
+}
+
+.right-instruction {
+    background-color: #f1dca3;
+}
+
+.right-instruction::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: -3.6%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #f1dca3;
+    clip-path: polygon(0% 0, 100% 100%, 100% 0%);
+}
+
+.main-image {
+    position: relative;
+    margin: 20px 0;
+}
+
+.main-image img {
+    width: 249px;
+    height: 331px;
+    border: 1px solid #ccc;
+    display: block;
+    margin: 0 auto;
+}
+
+.main-image p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+button {
+    font-size: 20px;
+    color: white;
+    background-color: blue;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: darkblue;
+}
