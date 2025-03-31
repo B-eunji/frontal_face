@@ -1,6 +1,6 @@
 /* src/style.css */
 
 /* 메인 페이지 CSS */
-@import './styles/index.css';
+@import './index.css';
 /* 얼굴인식 카메라 페이지 CSS */
-@import './styles/camera.css';
+@import './camera.css';

@@ -1,4 +1,4 @@
-import { drawLandmarks } from '/scripts/face-api/face_landmark-draw.js';
+import { drawLandmarks } from '../face-api/face_landmark-draw.js';
 import { displayFaceStatus, showGuidingArrow } from '../utils/utils.js';
 import { showDirectionArrow } from './direction-arrow.js';
 import {updateFeedbackImage} from './direction-image.js';
