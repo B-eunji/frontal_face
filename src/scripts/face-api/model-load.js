@@ -4,13 +4,13 @@ export let modelLoaded = false;
 export async function loadModels() {
     console.log("모델 로드 시작");
     try{
-        await faceapi.nets.ssdMobilenetv1.loadFromUri('/models');
+        await faceapi.nets.ssdMobilenetv1.loadFromUri('/models_ai');
         console.log("모델 로드 성공");
 
-        await faceapi.nets.faceLandmark68Net.loadFromUri('/models');
+        await faceapi.nets.faceLandmark68Net.loadFromUri('/models_ai');
         console.log("얼굴 68개의 랜드마크 로드 성공");
 
-        await faceapi.nets.faceRecognitionNet.loadFromUri('/models');
+        await faceapi.nets.faceRecognitionNet.loadFromUri('/models_ai');
         console.log("얼굴 인식 모델 로드 성공");
 
         modelLoaded = true;
