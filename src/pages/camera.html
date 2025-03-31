@@ -1,43 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camera View</title>
-    <!--<script async src="https://docs.opencv.org/4.x/opencv.js"></script>-->
+    <!-- 스타일 CSS -->
+    <link rel="stylesheet" href="/src/styles/camera.css">
+
+    <!--외부 라이브러리-->
     <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.20.0/dist/face-api.min.js"></script>
-    <link rel="stylesheet" href="styles/camera.css">
+    
 </head>
 <body>
     <div class="container">
+        <!-- 카메라 영역 -->
         <div class="camera-view">
+            <!-- 비디오 -->
             <video id="video" autoplay playsinline muted></video>
             <canvas id="overlay"></canvas>
+            
             <!-- 방향 화살표 이미지 (left, right, down_left, down_right) -->
             <img id="directionArrow" src="" alt="방향 화살표" />
+            
+            <!-- 타이머 -->
             <div id="timer" class="timer"></div>
             <!-- <img id="face-guide" src="/images/Frame17.png" class="face-guide"> -->
         </div> 
+
+        <!-- 버튼 -->
         <div class="buttons">
             <button id="refresh-button">처음으로 돌아가기</button>
             <button id="download-button">사진 다운로드</button>
         </div>
-        <!--<div id="arrow" class="arrow"></div>-->
         
+        <!-- 이미지 캡처 -->
         <div id="captured-image-container" style="display:none;">
             <img id="captured-image" alt="Captured Image">
             <button id="download-button">사진 다운로드</button>
         </div>
+
+        <!-- 피드백 영역-->
         <div id="feedback-container">
             <div id="face-status"></div>
             <img id="feedbackImage" src="" alt="피드백 이미지"/>
         </div>
-
-       
     </div>
     <script type="module">
-        import {setupCamera} from '/scripts/camera/camera-stream.js';
-        import {sendFaceToAPI} from '/scripts/api/api.js';
+        import { setupCamera } from '../scripts/camera/camera-stream.js';
+        import { sendFaceToAPI } from '../scripts/api/api.js';
 
         const videoElement = document.getElementById('video');
 
