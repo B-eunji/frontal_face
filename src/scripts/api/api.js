@@ -19,7 +19,7 @@ export function detectFace(imageFile) {
         const formData = new FormData();
         formData.append("file", imageFile);
         try {
-            const response = yield fetch("http://127.0.0.1:8080/detect-face", {
+            const response = yield fetch("http://54.252.173.245:8000/detect-face", {
                 method: "POST",
                 body: formData
             });
@@ -41,7 +41,7 @@ export async function sendFaceToAPI(videoElement) {
     formData.append("file", imageBlob);
     
     try {
-        const response = await fetch('http://127.0.0.1:8000/detect-face', {
+        const response = await fetch('http://54.252.173.245:8000/detect-face', {
             method: 'POST',
             body: formData
         });

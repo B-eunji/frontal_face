@@ -53,7 +53,7 @@ export async function startFaceDetection(videoElement) {
       formData.append('file', blob, 'face.jpg');
 
       try {
-        const response = await fetch('http://127.0.0.1:8000/detect-face', {
+        const response = await fetch('http://54.252.173.245:8000/detect-face', {
           method: 'POST',
           body: formData,
         });
