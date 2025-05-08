@@ -9,6 +9,8 @@ const frontalThreshold = 3;
 
 let prevFeedback = '';
 
+const API_URL = "http://54.153.179.25:8000";
+
 export async function startFaceDetection(videoElement) {
   const canvas = document.getElementById('overlay');
   const context = canvas.getContext('2d', { willReadFrequently: true });

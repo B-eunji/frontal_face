@@ -2,6 +2,7 @@
 프론트엔드에서 API 호출
 */
 
+const API_URL = "http://54.153.179.25:8000";
 
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
