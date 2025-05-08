@@ -21,7 +21,8 @@ export function detectFace(imageFile) {
         try {
             const response = yield fetch("http://54.153.179.25:8000/detect-face", {
                 method: "POST",
-                body: formData
+                body: formData,
+                mode: "cors",
             });
             if (!response.ok)
                 throw new Error("Failed to detect face");
@@ -43,7 +44,8 @@ export async function sendFaceToAPI(videoElement) {
     try {
         const response = await fetch('http://54.153.179.25:8000/detect-face', {
             method: 'POST',
-            body: formData
+            body: formData,
+            mode: "cors",
         });
         
         const data = await response.json();

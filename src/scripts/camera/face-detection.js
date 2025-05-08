@@ -56,6 +56,7 @@ export async function startFaceDetection(videoElement) {
         const response = await fetch('http://54.153.179.25:8000/detect-face', {
           method: 'POST',
           body: formData,
+          mode: "cors",
         });
         const result = await response.json();
 
