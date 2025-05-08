@@ -9,7 +9,6 @@ const frontalThreshold = 3;
 
 let prevFeedback = '';
 
-const API_URL = "http://54.153.179.25:8000";
 
 export async function startFaceDetection(videoElement) {
   const canvas = document.getElementById('overlay');
@@ -55,6 +54,7 @@ export async function startFaceDetection(videoElement) {
       formData.append('file', blob, 'face.jpg');
 
       try {
+        const API_URL = "http://54.153.179.25:8000";
         console.log("✅ API 요청 주소:", `${API_URL}/detect-face`);
         const response = await fetch('http://54.153.179.25:8000/detect-face', {
           method: 'POST',
