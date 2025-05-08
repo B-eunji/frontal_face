@@ -1,0 +1,8 @@
+src/algorithm/
+public/models_ai/
+requirements.txt
+main.py
+face_detection.py
+*.dat
+*.pyc
+__pycache__/
