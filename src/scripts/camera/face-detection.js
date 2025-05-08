@@ -53,6 +53,7 @@ export async function startFaceDetection(videoElement) {
       formData.append('file', blob, 'face.jpg');
 
       try {
+        console.log("✅ API 요청 주소:", `${API_URL}/detect-face`);
         const response = await fetch('http://54.153.179.25:8000/detect-face', {
           method: 'POST',
           body: formData,

@@ -19,6 +19,7 @@ export function detectFace(imageFile) {
         const formData = new FormData();
         formData.append("file", imageFile);
         try {
+            console.log("✅ API 요청 주소:", `${API_URL}/detect-face`);
             const response = yield fetch("http://54.153.179.25:8000/detect-face", {
                 method: "POST",
                 body: formData,
@@ -42,6 +43,7 @@ export async function sendFaceToAPI(videoElement) {
     formData.append("file", imageBlob);
     
     try {
+        console.log("✅ API 요청 주소:", `${API_URL}/detect-face`);
         const response = await fetch('http://54.153.179.25:8000/detect-face', {
             method: 'POST',
             body: formData,
