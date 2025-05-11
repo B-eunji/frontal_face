@@ -19,8 +19,7 @@ export function detectFace(imageFile) {
         const formData = new FormData();
         formData.append("file", imageFile);
         console.log("🔍 imageFile ▶️", imageFile);
-        console.log("📂 타입 ▶️", typeof imageFile);
-        console.log("✅ File 객체? ▶️", imageFile instanceof File);
+        console.log("📦 formData entries ▶️", [...formData.entries()]);
         try {
             //const formData = new FormData();
             // 테스트용 더미 파일 추가
@@ -50,8 +49,7 @@ export async function sendFaceToAPI(videoElement) {
     const formData = new FormData();
     formData.append("file", imageBlob);
     console.log("🔍 imageFile ▶️", imageFile);
-    console.log("📂 타입 ▶️", typeof imageFile);
-    console.log("✅ File 객체? ▶️", imageFile instanceof File);
+    console.log("📦 formData entries ▶️", [...formData.entries()]);
     
     try {
         //const formData = new FormData();
