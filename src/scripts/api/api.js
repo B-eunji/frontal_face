@@ -30,7 +30,7 @@ export function detectFace(imageFile) {
             const response = yield fetch("https://frontalface.ai.kr/detect-face", {
                 method: "POST",
                 body: formData,
-                //mode: "cors",
+                mode: "cors",
             });
             if (!response.ok)
                 throw new Error("Failed to detect face");

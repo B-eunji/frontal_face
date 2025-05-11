@@ -65,7 +65,7 @@ export async function startFaceDetection(videoElement) {
         const response = await fetch('https://frontalface.ai.kr/detect-face', {
           method: 'POST',
           body: formData,
-          //mode: "cors",
+          mode: "cors",
         });
         const result = await response.json();
 
