@@ -18,6 +18,9 @@ export function detectFace(imageFile) {
     return __awaiter(this, void 0, void 0, function* () {
         const formData = new FormData();
         formData.append("file", imageFile);
+        console.log("🔍 imageFile ▶️", imageFile);
+        console.log("📂 타입 ▶️", typeof imageFile);
+        console.log("✅ File 객체? ▶️", imageFile instanceof File);
         try {
             //const formData = new FormData();
             // 테스트용 더미 파일 추가
@@ -46,6 +49,9 @@ export async function sendFaceToAPI(videoElement) {
     const imageBlob = await captureImage(videoElement); // 비디오에서 이미지를 캡처
     const formData = new FormData();
     formData.append("file", imageBlob);
+    console.log("🔍 imageFile ▶️", imageFile);
+    console.log("📂 타입 ▶️", typeof imageFile);
+    console.log("✅ File 객체? ▶️", imageFile instanceof File);
     
     try {
         //const formData = new FormData();
