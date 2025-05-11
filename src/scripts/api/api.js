@@ -19,7 +19,7 @@ export function detectFace(imageFile) {
         const formData = new FormData();
         formData.append("file", imageFile);
         try {
-            const formData = new FormData();
+            //const formData = new FormData();
             // 테스트용 더미 파일 추가
             //formData.append("file", new Blob(["hello"], { type: "text/plain" }), "test.txt");
             console.log("📦 formData keys:", [...formData.keys()]);
@@ -48,7 +48,7 @@ export async function sendFaceToAPI(videoElement) {
     formData.append("file", imageBlob);
     
     try {
-        const formData = new FormData();
+        //const formData = new FormData();
             // 테스트용 더미 파일 추가
             //formData.append("file", new Blob(["hello"], { type: "text/plain" }), "test.txt");
             console.log("📦 formData keys:", [...formData.keys()]);
