@@ -18,7 +18,7 @@ export function detectFace(imageFile) {
     return __awaiter(this, void 0, void 0, function* () {
         const formData = new FormData();
         formData.append("file", imageFile);
-        //console.log("🔍 imageFile ▶️", imageFile);
+        
         console.log("📦 formData entries ▶️", [...formData.entries()]);
         try {
             //const formData = new FormData();
