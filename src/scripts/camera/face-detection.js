@@ -52,8 +52,8 @@ export async function startFaceDetection(videoElement) {
 
       const formData = new FormData();
       formData.append('file', blob, 'face.jpg');
-      console.log("🔍 imageFile ▶️", imageFile);
-      console.log("📦 formData entries ▶️", [...formData.entries()]);
+      //console.log("🔍 imageFile ▶️", imageFile);
+      //console.log("📦 formData entries ▶️", [...formData.entries()]);
 
       try {
         const formData = new FormData();
