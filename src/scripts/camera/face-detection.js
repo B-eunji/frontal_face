@@ -52,7 +52,7 @@ export async function startFaceDetection(videoElement) {
 
       const formData = new FormData();
       formData.append('file', blob, 'face.jpg');
-      //console.log("🔍 imageFile ▶️", imageFile);
+      
       //console.log("📦 formData entries ▶️", [...formData.entries()]);
 
       try {
@@ -60,7 +60,7 @@ export async function startFaceDetection(videoElement) {
         // 테스트용 더미 파일 추가
         //formData.append("file", new Blob(["hello"], { type: "text/plain" }), "test.txt");
         console.log("📦 formData keys:", [...formData.keys()]);
-        const API_URL = "https://frontalface.ai.kr";
+        const API_URL = "https://frontalface.ai.kr/detect-face";
         console.log("✅ API 요청 주소:", `${API_URL}/detect-face`);
         const response = await fetch('https://frontalface.ai.kr/detect-face', {
           method: 'POST',
