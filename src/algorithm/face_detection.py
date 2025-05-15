@@ -16,7 +16,7 @@ app = FastAPI()
 # CORS 설정 추가
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://frontal-face.vercel.app", "https://frontalface.ai.kr"], 
+    allow_origins=["https://frontal-face.vercel.app", "https://frontalface.ai.kr/detect-face"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
