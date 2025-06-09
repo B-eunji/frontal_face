@@ -48,7 +48,7 @@ export async function sendFaceToAPI(videoElement) {
     const imageBlob = await captureImage(videoElement); // 비디오에서 이미지를 캡처
     const formData = new FormData();
     formData.append("file", imageBlob);
-    console.log("🔍 imageFile ▶️", imageFile);
+    console.log("🔍 imageBlob ▶️", imageBlob);
     console.log("📦 formData entries ▶️", [...formData.entries()]);
     
     try {
