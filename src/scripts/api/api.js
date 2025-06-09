@@ -42,6 +42,8 @@ export function detectFace(imageFile) {
         }
     });
 }
+
+
 import { captureImage } from '../camera/camera-capture.js';
 // 서버에 얼굴 이미지를 전송하고 정면 여부를 받아오는 함수
 export async function sendFaceToAPI(videoElement) {
@@ -57,7 +59,7 @@ export async function sendFaceToAPI(videoElement) {
             //formData.append("file", new Blob(["hello"], { type: "text/plain" }), "test.txt");
             console.log("📦 formData keys:", [...formData.keys()]);
         const API_URL = "https://frontalface.ai.kr/detect-face";
-        console.log("✅ API 요청 주소:", `${API_URL}/detect-face`);
+        console.log("✅ API 요청 주소:", `${API_URL}`);
         const response = await fetch('https://frontalface.ai.kr/detect-face', {
             method: 'POST',
             body: formData,

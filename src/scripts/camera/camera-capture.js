@@ -7,7 +7,13 @@ export async function captureImage(videoElement) {
         canvas.height = videoElement.videoHeight;
         const context = canvas.getContext("2d");
         context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-        canvas.toBlob((blob) => resolve(blob), "image/jpeg");
+        canvas.toBlob((blob) => {
+            if (blob) {
+                resolve(blob);
+            } else {
+                reject(new Error("Failed to capture image: Blob is null"));
+            }
+        }, "image/jpeg");
     });
     return blob
 }
