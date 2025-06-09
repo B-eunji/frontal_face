@@ -51,7 +51,9 @@ export async function sendFaceToAPI(videoElement) {
     const formData = new FormData();
     formData.append("file", imageBlob);
     console.log("🔍 imageBlob ▶️", imageBlob);
-    console.log("📦 formData entries ▶️", [...formData.entries()]);
+    //console.log("📦 formData entries ▶️", [...formData.entries()]);
+    console.log("imageBlob instanceof Blob:", imageBlob instanceof Blob);
+    console.log("imageBlob size:", imageBlob?.size);
     
     try {
         //const formData = new FormData();
