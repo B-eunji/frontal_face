@@ -47,6 +47,7 @@ export function detectFace(imageFile) {
 import { captureImage } from '../camera/camera-capture.js';
 // 서버에 얼굴 이미지를 전송하고 정면 여부를 받아오는 함수
 export async function sendFaceToAPI(videoElement) {
+    console.log("sendFaceToAPI 호출 완료")
     const imageBlob = await captureImage(videoElement); // 비디오에서 이미지를 캡처
     const formData = new FormData();
     formData.append("file", imageBlob);
