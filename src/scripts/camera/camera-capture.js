@@ -1,7 +1,7 @@
 //웹 캠 캡쳐 및 FastAPI에 전송
 
 export async function captureImage(videoElement) {
-    const blob = await new Promise((resolve) => {
+    const blob = await new Promise((resolve,reject) => {
         const canvas = document.createElement("canvas");
         canvas.width = videoElement.videoWidth;
         canvas.height = videoElement.videoHeight;
