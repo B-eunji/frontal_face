@@ -47,32 +47,41 @@ export function detectFace(imageFile) {
 import { captureImage } from '../camera/camera-capture.js';
 // 서버에 얼굴 이미지를 전송하고 정면 여부를 받아오는 함수
 export async function sendFaceToAPI(videoElement) {
-    console.log("sendFaceToAPI 호출 완료")
-    const imageBlob = await captureImage(videoElement); // 비디오에서 이미지를 캡처
-    const formData = new FormData();
-    formData.append("file", imageBlob);
-    console.log("🔍 imageBlob ▶️", imageBlob);
-    //console.log("📦 formData entries ▶️", [...formData.entries()]);
-    console.log("imageBlob instanceof Blob:", imageBlob instanceof Blob);
-    console.log("imageBlob size:", imageBlob?.size);
-    
+    console.log("✅ sendFaceToAPI 호출 완료");
+
     try {
-        //const formData = new FormData();
-            // 테스트용 더미 파일 추가
-            //formData.append("file", new Blob(["hello"], { type: "text/plain" }), "test.txt");
-            console.log("📦 formData keys:", [...formData.keys()]);
+        const imageBlob = await captureImage(videoElement);
+
+        if (!imageBlob || imageBlob.size === 0) {
+            console.error("❌ imageBlob 생성 실패 또는 빈 파일입니다.");
+            return { is_frontal: false, explanation: "캡쳐 실패" };
+        }
+
+        console.log("🔍 imageBlob ▶️", imageBlob);
+        console.log("imageBlob instanceof Blob:", imageBlob instanceof Blob);
+        console.log("imageBlob size:", imageBlob.size);
+
+        const formData = new FormData();
+        formData.append("file", imageBlob);
+        console.log("📦 formData entries ▶️", [...formData.entries()]);
+
         const API_URL = "https://frontalface.ai.kr/detect-face";
-        console.log("✅ API 요청 주소:", `${API_URL}`);
-        const response = await fetch('https://frontalface.ai.kr/detect-face', {
+        console.log("✅ API 요청 주소:", API_URL);
+
+        const response = await fetch(API_URL, {
             method: 'POST',
-            body: formData,
-            //mode: "cors",
+            body: formData
         });
-        
+
+        if (!response.ok) {
+            throw new Error("❌ 서버 응답 실패");
+        }
+
         const data = await response.json();
-        return data;  // { is_frontal: true/false, tilt_direction: "left" / "right", area_ratio_diff: number, explanation: "..." }
+        return data;
+
     } catch (error) {
-        console.error('Error during face detection API request:', error);
-        return { is_frontal: false, tilt_direction: "center", explanation: "Error occurred." };  // 기본값 처리
+        console.error("🔥 에러 발생:", error);
+        return { is_frontal: false, tilt_direction: "center", explanation: "Error occurred." };
     }
 }
