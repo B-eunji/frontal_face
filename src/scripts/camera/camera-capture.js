@@ -1,6 +1,14 @@
 //웹 캠 캡쳐 및 FastAPI에 전송
 
 export async function captureImage(videoElement) {
+    await new Promise(resolve => {
+      if (videoElement.readyState >= 2) {
+        resolve();
+      } else {
+        videoElement.addEventListener('loadeddata', resolve, { once: true });
+      }
+    });
+
     const blob = await new Promise((resolve,reject) => {
         const canvas = document.createElement("canvas");
         canvas.width = videoElement.videoWidth;
