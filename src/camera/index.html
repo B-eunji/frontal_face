@@ -53,6 +53,22 @@
         //웹캠 스트리밍 시작
         setupCamera(videoElement);
 
+        // 실시간 얼굴 인식 시작
+        videoElement.addEventListener('loadeddata', () => {
+            startFaceDetectionLoop(videoElement);
+        }, { once: true });
+
+        function startFaceDetectionLoop(videoElement) {
+            async function detectLoop() {
+                const result = await sendFaceToAPI(videoElement);
+                // 👉 여기서 얼굴 상태 결과에 따라 화면 업데이트 가능
+
+                // 반복 간격 (예: 0.5초 마다 실행)
+                setTimeout(detectLoop, 500);
+            }
+            detectLoop();
+        }
+
         //캡처 버튼 이벤트
         document.getElementById('download-button').addEventListener('click', async () => {
             const result = await sendImageToAPI(videoElement);
