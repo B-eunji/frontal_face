@@ -121,4 +121,15 @@ if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
     
 
+@app.post("/debug-detect-face")
+async def debug_detect_face(request: Request):
+    form = await request.form()
+    for key in form.keys():
+        print("📦 실제 들어온 필드 이름:", key)
+
+    file = form.get("file")
+    if file is None:
+        return {"error": "❌ 'file' 필드가 없습니다."}, 400
+    else:
+        return {"message": "✅ 'file' 필드 수신 성공"}
     

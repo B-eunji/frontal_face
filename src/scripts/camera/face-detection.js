@@ -60,9 +60,9 @@ export async function startFaceDetection(videoElement) {
         // 테스트용 더미 파일 추가
         //formData.append("file", new Blob(["hello"], { type: "text/plain" }), "test.txt");
         console.log("📦 formData keys:", [...formData.keys()]);
-        const API_URL = "https://frontalface.ai.kr/detect-face";
+        const API_URL = "https://frontalface.ai.kr/debug-detect-face";
         console.log("✅ API 요청 주소:", `${API_URL}`);
-        const response = await fetch('https://frontalface.ai.kr/detect-face', {
+        const response = await fetch(API_URL, {
           method: 'POST',
           body: formData,
           mode: "cors",
