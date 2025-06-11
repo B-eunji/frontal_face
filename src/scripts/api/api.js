@@ -42,11 +42,13 @@ export function detectFace(imageFile) {
         }
     });
 }
-
+//중복 요청 방지
+let isProcessing = false;
 
 import { captureImage } from '../camera/camera-capture.js';
 // 서버에 얼굴 이미지를 전송하고 정면 여부를 받아오는 함수
 export async function sendFaceToAPI(videoElement) {
+    if (isProcessing) return; 
     console.log("✅ sendFaceToAPI 호출 완료");
 
     try {
@@ -83,5 +85,7 @@ export async function sendFaceToAPI(videoElement) {
     } catch (error) {
         console.error("🔥 에러 발생:", error);
         return { is_frontal: false, tilt_direction: "center", explanation: "Error occurred." };
+    } finally{
+        isProcessing = false;
     }
 }
