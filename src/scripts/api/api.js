@@ -64,7 +64,7 @@ export async function sendFaceToAPI(videoElement) {
         console.log("imageBlob size:", imageBlob.size);
 
         const formData = new FormData();
-        formData.append("file", imageBlob);
+        formData.append("file", imageBlob, capture.jpg);
         console.log("📦 formData entries ▶️", [...formData.entries()]);
 
         const API_URL = "https://frontalface.ai.kr/detect-face";
