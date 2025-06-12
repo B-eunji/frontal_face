@@ -3,6 +3,7 @@
 """
 
 from fastapi import FastAPI, File, UploadFile,WebSocket
+from fastapi import Request
 import os
 import cv2
 import dlib
@@ -71,6 +72,10 @@ async def debug_detect_face(request: Request):
     if file is None:
         return {"error": "❌ 'file' 필드가 없습니다."}, 400
     else:
+        contents = await file.read()
+        print("📝 파일 이름:", file.filename)
+        print("🗂️ 파일 타입:", file.content_type)
+        print("📏 파일 크기:", len(contents))
         return {"message": "✅ 'file' 필드 수신 성공"}
 
 @app.post("/detect-face")
@@ -84,6 +89,7 @@ async def detect_face(file: UploadFile = File(...)):
         
         faces = detector(gray)
         if not faces:
+            print("❌ 얼굴이 감지되지 않았습니다.")
             return {"error": "No face detected"}, 400
         for face in faces:
             #얼굴 랜드마크 검출
