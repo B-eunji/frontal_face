@@ -62,21 +62,21 @@ def calculate_area(landmarks):
 def calculate_slope(a, b):
     return (b[1] - a[1]) / (b[0] - a[0] + 1e-10)
 
-@app.post("/debug-detect-face")
-async def debug_detect_face(request: Request):
-    form = await request.form()
-    for key in form.keys():
-        print("📦 실제 들어온 필드 이름:", key)
+# @app.post("/debug-detect-face")
+# async def debug_detect_face(request: Request):
+#     form = await request.form()
+#     for key in form.keys():
+#         print("📦 실제 들어온 필드 이름:", key)
 
-    file = form.get("file")
-    if file is None:
-        return {"error": "❌ 'file' 필드가 없습니다."}, 400
-    else:
-        contents = await file.read()
-        print("📝 파일 이름:", file.filename)
-        print("🗂️ 파일 타입:", file.content_type)
-        print("📏 파일 크기:", len(contents))
-        return {"message": "✅ 'file' 필드 수신 성공"}
+#     file = form.get("file")
+#     if file is None:
+#         return {"error": "❌ 'file' 필드가 없습니다."}, 400
+#     else:
+#         contents = await file.read()
+#         print("📝 파일 이름:", file.filename)
+#         print("🗂️ 파일 타입:", file.content_type)
+#         print("📏 파일 크기:", len(contents))
+#         return {"message": "✅ 'file' 필드 수신 성공"}
 
 @app.post("/detect-face")
 #얼굴 정면 여부 및 기울기 판별 API
