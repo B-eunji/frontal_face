@@ -21,6 +21,14 @@ export async function setupCamera(videoElement) {
                 startFaceDetection(videoElement);
             }else{
                 console.error("Model failed to load.");
+                // 카메라가 없거나 접근 실패 시 안내 문구 출력
+                const container = document.querySelector('.camera-view');
+                container.innerHTML = `
+                    <div class="no-camera">
+                        <p>현재 환경에서는 카메라 접근이 불가능합니다.<br>
+                        지원되는 브라우저/디바이스에서 확인해주세요.</p>
+                    </div>
+                `;
             }
         };
     } catch (error) {

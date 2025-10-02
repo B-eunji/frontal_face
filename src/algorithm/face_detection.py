@@ -17,7 +17,7 @@ app = FastAPI()
 # CORS 설정 추가
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://frontal-face.vercel.app", "https://frontalface.ai.kr"], 
+    allow_origins=["https://frontal-face.vercel.app", "https://frontalface.ai.kr" , "http://localhost:5173"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -108,15 +108,15 @@ async def detect_face(file: UploadFile = File(...)):
             print(f"area_ratio_diff: {area_ratio_diff:.4f}")
             
             #정면 판별
-            is_frontal = abs(slope_horizontal) <= 0.05 and area_ratio_diff <= 0.05
+            is_frontal = abs(slope_horizontal) <= 0.1 and area_ratio_diff <= 0.1
             
             #비정면 기준 얼굴 기울기 판별
             tilt_direction = "Frontal"
-            if slope_horizontal > 0.05:
+            if slope_horizontal > 0.1:
                 tilt_direction = "Left"
-            elif slope_horizontal < -0.05:
+            elif slope_horizontal < -0.1:
                 tilt_direction = "Right"
-            elif area_ratio_diff > 0.05:
+            elif area_ratio_diff > 0.1:
                 tilt_direction = "area_Left" if left_area > right_area else "area_Right"
             #else: tilt_direction = "Frontal"
 
