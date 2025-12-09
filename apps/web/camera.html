@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camera View</title>
-    <!-- 스타일 CSS -->
+    <!-- 스타일 JS 파일 연결 -->
     <script type="module" src="/src/main.js"></script>
 
     <!--외부 라이브러리-->
@@ -45,8 +45,8 @@
         </div>
     </div>
     <script type="module">
-        import { setupCamera } from '../scripts/camera/camera-stream.js';
-        import { sendFaceToAPI } from '../scripts/api/api.js';
+        import { setupCamera } from '/src/scripts/camera/camera-stream.js';
+        import { sendFaceToAPI } from '/src/scripts/api/api.js';
 
         const videoElement = document.getElementById('video');
 
@@ -82,7 +82,7 @@
     </script>
     <script>
         document.getElementById('refresh-button').addEventListener('click', () => {
-            window.location.href = '../index.html'
+            window.location.href = '/index.html'
         });
     </script>
 </body>

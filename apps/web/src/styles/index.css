@@ -117,18 +117,19 @@ h3 {
     text-align: center;
 }
 
-button {
+.startButton {
+    display: inline-block;       /* a를 버튼처럼 보이게 하는 핵심 */
     font-size: 20px;
     color: white;
     background-color: blue;
-    border: none;
     padding: 10px 20px;
     border-radius: 10px;
+    text-decoration: none;       /* 밑줄 제거 */
     cursor: pointer;
     margin-top: 20px;
 }
 
-button:hover {
+.startButton:hover {
     background-color: darkblue;
 }
 
