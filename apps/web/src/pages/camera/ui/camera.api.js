@@ -48,7 +48,7 @@ export function detectFace(imageFile) {
 //중복 요청 방지
 let isProcessing = false;
 
-import { captureImage } from '../camera/camera-capture.js';
+import { captureImage } from '../../pages/camera/camera/camera-capture.js';
 // 서버에 얼굴 이미지를 전송하고 정면 여부를 받아오는 함수
 export async function sendFaceToAPI(videoElement) {
     if (isProcessing) return; 

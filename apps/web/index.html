@@ -6,8 +6,9 @@
     <title>Face Detection</title>
 
     <!--Vite 진입점 main.js-->
-    <script type="module" src="/src/main.js"></script>
-    
+    <!-- <script type="module" src="/src/main.js"></script> -->
+    <link rel="stylesheet" href="/src/pages/home/home.css" />
+
     <!--외부 라이브러리-->
     <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/face-api.js/dist/face-api.min.js"></script>
@@ -27,7 +28,7 @@
             <p class="right-instruction">고개를 오른쪽으로 조금만 돌려주세요!</p>
         </div>
         <div class="main-image">
-            <img src="images/main.png" alt="메인 촬영 화면 이미지">
+            <img src="/images/main.png" alt="메인 촬영 화면 이미지">
         </div>
         <a class="startButton" href="/camera.html">시작하기</a>
     </div>

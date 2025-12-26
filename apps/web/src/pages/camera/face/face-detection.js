@@ -1,7 +1,7 @@
-import { drawLandmarks } from '../face-api/face_landmark-draw.js';
-import { displayFaceStatus, showGuidingArrow } from '../utils/utils.js';
-import { showDirectionArrow } from './direction-arrow.js';
-import {updateFeedbackImage} from './direction-image.js';
+import { drawLandmarks } from './face_landmark-draw.js';
+import { displayFaceStatus, showGuidingArrow } from '../ui/utils.js';
+import { showDirectionArrow } from '../ui/direction-arrow.js';
+import {updateFeedbackImage} from '../ui/direction-image.js';
 
 let isProcessing = false;
 let frontalCount = 0;

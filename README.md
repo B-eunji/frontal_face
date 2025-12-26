@@ -38,7 +38,7 @@ git_graduation_project
 │
 ├── .gitignore           # Git에서 제외할 파일 목록
 ├── camera.html          # 카메라 기능이 포함된 HTML 파일
-├── index.html           # 프로젝트 메인 페이지
+├── home.html           # 프로젝트 메인 페이지
 ├── package-lock.json    # 프로젝트 종속성 정보
 ├── package.json         # 프로젝트 패키지 정보
 ├── README.md            # 프로젝트 개요 및 설명
