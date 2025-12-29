@@ -1,7 +1,7 @@
 // src/scripts/script.js
 
 // 카메라 기능
-import '../../scripts/camera/camera-stream.js';
+import './camera/camera-stream.js';
 import './camera/camera-capture.js';
 import './face/face-detection.js';
 import './ui/direction-arrow.js';
@@ -15,4 +15,4 @@ import './face/face_landmark-draw.js';
 import './ui/utils.js';
 
 // 서버 API 통신
-import '../../scripts/api/camera.api.js';
+import './ui/camera.api.js';

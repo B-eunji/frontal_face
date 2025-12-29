@@ -7,9 +7,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    text-align: center;
     height: 100vh;
 }
 
+/* .container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+} */
 
 h1 {
     font-size: 20px;
@@ -119,6 +127,8 @@ h3 {
 
 .startButton {
     display: inline-block;       /* a를 버튼처럼 보이게 하는 핵심 */
+    align-items: center;
+    justify-content: center;
     font-size: 20px;
     color: white;
     background-color: blue;
@@ -127,6 +137,7 @@ h3 {
     text-decoration: none;       /* 밑줄 제거 */
     cursor: pointer;
     margin-top: 20px;
+    border:none;
 }
 
 .startButton:hover {

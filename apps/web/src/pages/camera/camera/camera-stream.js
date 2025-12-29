@@ -1,5 +1,5 @@
-import { startFaceDetection } from './face-detection.js';
-import { loadModels, modelLoaded } from '../face-api/model-load.js';
+import { startFaceDetection } from '../face/face-detection.js';
+import { loadModels, modelLoaded } from '../face/model-load.js';
 import * as faceapi from 'face-api.js';
 
 //웹 캠 스트리밍
