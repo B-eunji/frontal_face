@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+.env
+
+# ML model files (dlib)
+apps/api/app/assets/models/*.dat
+apps/api/app/assets/models/*.bz2
