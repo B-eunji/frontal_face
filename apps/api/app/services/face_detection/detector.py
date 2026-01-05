@@ -24,7 +24,7 @@ app.add_middleware(
 )
 
 
-MODEL_PATH = "src/algorithm/shape_predictor_68_face_landmarks.dat"
+MODEL_PATH = "app/assets/models/shape_predictor_68_face_landmarks.dat"
 
 # Dlib의 얼굴 감지기와 랜드마크 예측기 초기화
 detector = dlib.get_frontal_face_detector()
