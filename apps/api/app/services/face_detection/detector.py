@@ -1,40 +1,23 @@
 """
     FastAPI 기반의 얼굴 감지 API
 """
-
-from fastapi import FastAPI, File, UploadFile,WebSocket
-from fastapi import Request
 import os
 import cv2
 import dlib
 import numpy as np
-import uvicorn
-from io import BytesIO
-from fastapi.middleware.cors import CORSMiddleware
- 
-app = FastAPI()
-
-# CORS 설정 추가
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["https://frontal-face.vercel.app", "https://frontalface.ai.kr" , "http://localhost:5173"], 
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 MODEL_PATH = "app/assets/models/shape_predictor_68_face_landmarks.dat"
+
+# 모델 파일 존재 확인
+if not os.path.exists(MODEL_PATH):
+    raise FileNotFoundError(f"모델 파일을 찾을 수 없습니다: {MODEL_PATH}")
+print(f"✅ 모델 파일 경로 확인 완료: {MODEL_PATH}")
 
 # Dlib의 얼굴 감지기와 랜드마크 예측기 초기화
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(MODEL_PATH)
 
-# 모델 파일 경로 확인
-if not os.path.exists(MODEL_PATH):
-    raise FileNotFoundError(f"❌ 모델 파일을 찾을 수 없습니다: {MODEL_PATH}")
-
-print(f"✅ 모델 파일 경로 확인 완료: {MODEL_PATH}")
 
 #두 눈의 중점 반환
 def get_midpoint(p1, p2):
@@ -62,35 +45,25 @@ def calculate_area(landmarks):
 def calculate_slope(a, b):
     return (b[1] - a[1]) / (b[0] - a[0] + 1e-10)
 
-# @app.post("/debug-detect-face")
-# async def debug_detect_face(request: Request):
-#     form = await request.form()
-#     for key in form.keys():
-#         print("📦 실제 들어온 필드 이름:", key)
 
-#     file = form.get("file")
-#     if file is None:
-#         return {"error": "❌ 'file' 필드가 없습니다."}, 400
-#     else:
-#         contents = await file.read()
-#         print("📝 파일 이름:", file.filename)
-#         print("🗂️ 파일 타입:", file.content_type)
-#         print("📏 파일 크기:", len(contents))
-#         return {"message": "✅ 'file' 필드 수신 성공"}
-
-@app.post("/detect-face")
 #얼굴 정면 여부 및 기울기 판별 API
-async def detect_face(file: UploadFile = File(...)):
+def detect_face_from_bytes(image_bytes: bytes) -> dict:
     try:
         #이미지 로드 & 그레이스케일 변환
-        img_np = np.frombuffer(file.file.read(), np.uint8)
+        img_np = np.frombuffer(image_bytes, np.uint8)
         img = cv2.imdecode(img_np, cv2.IMREAD_COLOR)
+        
+        if img is None:
+            print("❌ 이미지 invalid ")
+            return {"error": "Invalid image"}, 400
+
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
         faces = detector(gray)
         if not faces:
             print("❌ 얼굴이 감지되지 않았습니다.")
             return {"error": "No face detected"}, 400
+        
         for face in faces:
             #얼굴 랜드마크 검출
             landmarks = predictor(gray, face)
@@ -126,16 +99,10 @@ async def detect_face(file: UploadFile = File(...)):
                 "slope_horizontal": slope_horizontal,
                 "area_ratio_diff": area_ratio_diff,
                 "tilt_direction": tilt_direction,
-                #"log": f"slope: {slope_horizontal:.3f}, area_diff: {area_ratio_diff:.3f}"
-
-                }
+                }, 200
         
     except Exception as e:
         return{"error": str(e)}, 500
-
-#FASTAPI 서버 실행 (로컬 테스트용)
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
     
 
 
