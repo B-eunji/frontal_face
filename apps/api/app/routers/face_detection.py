@@ -13,5 +13,7 @@ router = APIRouter(tags=["face"])
 @router.post("/detect-face")
 async def detect_face(file: UploadFile = File(...)):
     image_bytes = await file.read()
+    print(f"[ROUTER] /detect-face file={file.filename} content_type={file.content_type}")
+    
     result, status = detect_face_from_bytes(image_bytes)
-    return result if status == 200 else result
+    return JSONResponse(content=result, status_code=status)
