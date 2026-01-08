@@ -25,24 +25,3 @@ export async function captureImage(videoElement) {
     });
     return blob
 }
-
-//캡쳐 API에 전송
-/* export async function sendImageToAPI(videoElement){
-    const blob = await captureImage(videoElement);
-    const formData = new FormData();
-    formData.append('file', blob, 'image.jpg');
-
-    //API 서버에 POST 수락 요청
-    const response = await fetch('http://localhost:8000/detect-face',{
-        method: 'POST',
-        body: formData
-    });
-
-    if (response.ok){
-        const data = await response.json();
-        console.log('Face Detection Result:', data);
-        return data;
-    } else{
-        console.error('Error with face detection API:'. response.statusText);
-    }
-} */
