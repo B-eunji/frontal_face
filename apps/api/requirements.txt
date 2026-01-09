@@ -3,6 +3,7 @@ anyio==4.9.0
 click==8.1.8
 dlib==19.24.6
 fastapi==0.115.12
+uvicorn[standard]==0.30.6
 h11==0.14.0
 idna==3.10
 numpy==2.2.4
