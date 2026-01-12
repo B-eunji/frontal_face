@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+.env
+.DS_Store
+
+app/assets/models/*.dat
+app/assets/models/*.bz2
+
+.git/
+.idea/
+.vscode/
