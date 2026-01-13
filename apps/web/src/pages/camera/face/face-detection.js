@@ -73,10 +73,8 @@ export async function startFaceDetection(videoElement) {
           const formData = new FormData();
           formData.append('file', blob, 'face.jpg');
 
-          const API_URL =
-            window.location.hostname === 'localhost'
-              ? 'http://localhost:8000/detect-face'
-              : 'https://frontalface.ai.kr/detect-face';
+          const API_BASE = import.meta.env.VITE_API_BASE_URL;
+          const API_URL = `${API_BASE}/detect-face`;
 
           const response = await fetch(API_URL, {
             method: 'POST',
