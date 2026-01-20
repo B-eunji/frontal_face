@@ -20,7 +20,7 @@ app.add_middleware(
         "https://frontalface.ai.kr" , 
         "http://localhost:5173",
         "https://frontal-face-backend-docker-image.onrender.com/detect-face",
-        "https://frontalface-git-develop-b-eunjis-projects.vercel.app"
+        "https://frontalface.vercel.app"
         ], 
     allow_credentials=True,
     allow_methods=["*"],
