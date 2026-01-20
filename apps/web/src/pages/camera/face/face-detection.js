@@ -73,7 +73,10 @@ export async function startFaceDetection(videoElement) {
           const formData = new FormData();
           formData.append('file', blob, 'face.jpg');
 
-          const API_BASE = import.meta.env.VITE_API_BASE_URL;
+          const API_BASE = import.meta.env.VITE_API_BASE ||
+            (window.location.hostname === "localhost"
+              ? "http://localhost:8000"
+              : "https://frontal-face-backend-docker-image.onrender.com");
           const API_URL = `${API_BASE}/detect-face`;
           console.log("API 요청 주소:", API_URL);
 
