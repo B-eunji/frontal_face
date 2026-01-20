@@ -75,6 +75,7 @@ export async function startFaceDetection(videoElement) {
 
           const API_BASE = import.meta.env.VITE_API_BASE_URL;
           const API_URL = `${API_BASE}/detect-face`;
+          console.log("API 요청 주소:", API_URL);
 
           const response = await fetch(API_URL, {
             method: 'POST',

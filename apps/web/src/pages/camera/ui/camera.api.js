@@ -25,8 +25,8 @@ export function detectFace(imageFile) {
 
             const API_BASE = import.meta.env.VITE_API_BASE_URL;
             const API_URL = `${API_BASE}/detect-face`;
-
-            console.log("✅ API 요청 주소:", `${API_URL}`);
+            console.log(" API 요청 주소:", `${API_URL}`);
+            
             const response = yield fetch(API_URL, {
                 method: "POST",
                 body: formData,
