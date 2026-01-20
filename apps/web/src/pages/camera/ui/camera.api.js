@@ -26,7 +26,7 @@ export function detectFace(imageFile) {
             const API_BASE = import.meta.env.VITE_API_BASE_URL;
             const API_URL = `${API_BASE}/detect-face`;
             console.log(" API 요청 주소:", `${API_URL}`);
-            
+
             const response = yield fetch(API_URL, {
                 method: "POST",
                 body: formData,
@@ -67,15 +67,14 @@ export async function sendFaceToAPI(videoElement) {
         formData.append("file", imageBlob);
         console.log("📦 formData entries ▶️", [...formData.entries()]);
 
-        // const API_URL = "https://frontalface.ai.kr/detect-face";
-        const API_URL = window.location.hostname === "localhost"
-            ? "http://localhost:8000/detect-face"   // 로컬 개발 환경
-            : "https://frontalface.ai.kr/detect-face"; // 배포 환경
-        console.log("✅ API 요청 주소:", API_URL);
+        const API_BASE = import.meta.env.VITE_API_BASE;
+
+        const API_URL = `${API_BASE}/detect-face`;
 
         const response = await fetch(API_URL, {
-            method: 'POST',
-            body: formData
+            method: "POST",
+            body: formData,
+            mode: "cors",
         });
 
         if (!response.ok) {

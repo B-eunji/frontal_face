@@ -18,7 +18,8 @@ app.add_middleware(
     allow_origins=[
         "https://frontal-face.vercel.app", 
         "https://frontalface.ai.kr" , 
-        "http://localhost:5173"
+        "http://localhost:5173",
+        "https://frontal-face-backend-docker-image.onrender.com/detect-face"
         ], 
     allow_credentials=True,
     allow_methods=["*"],
