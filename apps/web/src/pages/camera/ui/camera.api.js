@@ -21,14 +21,11 @@ export function detectFace(imageFile) {
         
         console.log("📦 formData entries ▶️", [...formData.entries()]);
         try {
-            //const formData = new FormData();
-            // 테스트용 더미 파일 추가
-            //formData.append("file", new Blob(["hello"], { type: "text/plain" }), "test.txt");
             console.log("📦 formData keys:", [...formData.keys()]);
-            // const API_URL = "https://frontalface.ai.kr/detect-face";
-            const API_URL = window.location.hostname === "localhost"
-            ? "http://localhost:8000/detect-face"   // 로컬 개발 환경
-            : "https://frontalface.ai.kr/detect-face"; // 배포 환경
+
+            const API_BASE = import.meta.env.VITE_API_BASE_URL;
+            const API_URL = `${API_BASE}/detect-face`;
+
             console.log("✅ API 요청 주소:", `${API_URL}`);
             const response = yield fetch(API_URL, {
                 method: "POST",
