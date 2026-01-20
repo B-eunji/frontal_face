@@ -67,7 +67,7 @@ export async function sendFaceToAPI(videoElement) {
         formData.append("file", imageBlob);
         console.log("📦 formData entries ▶️", [...formData.entries()]);
 
-        const API_BASE = import.meta.env.VITE_API_BASE;
+        const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
         const API_URL = `${API_BASE}/detect-face`;
 

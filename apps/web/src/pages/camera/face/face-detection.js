@@ -73,7 +73,7 @@ export async function startFaceDetection(videoElement) {
           const formData = new FormData();
           formData.append('file', blob, 'face.jpg');
 
-          const API_BASE = import.meta.env.VITE_API_BASE ||
+          const API_BASE = import.meta.env.VITE_API_BASE_URL ||
             (window.location.hostname === "localhost"
               ? "http://localhost:8000"
               : "https://frontal-face-backend-docker-image.onrender.com");
