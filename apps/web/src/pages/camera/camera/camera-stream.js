@@ -24,13 +24,18 @@ export async function setupCamera(videoElement) {
             }
         };
     } catch (error) {
+        // 에러 안내
         console.error("Error accessing camera:", error);
-        // 카메라가 없거나 접근 실패 시 안내 문구 출력
+
+        //카메라 접근 상태 문구 출력
+        const message = error.name === 'NotAllowedError'
+            ? '카메라 접근이 차단됐어요.<br>브라우저나 시스템 설정에서 카메라 권한을 확인해 주세요.'
+            : '현재 환경에서는 카메라 접근이 불가능합니다.<br>지원되는 브라우저/디바이스에서 확인해주세요.';
+
         const container = document.querySelector('.camera-view');
         container.innerHTML = `
             <div class="no-camera">
-                <p>현재 환경에서는 카메라 접근이 불가능합니다.<br>
-                지원되는 브라우저/디바이스에서 확인해주세요.</p>
+                <p>${message}</p>
             </div>
         `;
     }
