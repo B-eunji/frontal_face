@@ -1,6 +1,8 @@
 import { startFaceDetection } from '../face/face-detection.js';
 import { loadModels, modelLoaded } from '../face/model-load.js';
 import * as faceapi from 'face-api.js';
+import { displayFaceStatus } from '../ui/utils.js';
+
 
 //웹 캠 스트리밍
 export async function setupCamera(videoElement) {
@@ -21,6 +23,7 @@ export async function setupCamera(videoElement) {
                 startFaceDetection(videoElement);
             }else{
                 console.error("Model failed to load.");
+                displayFaceStatus('얼굴 인식 모델을 불러오지 못했어요. 페이지를 새로고침해 주세요.');
             }
         };
     } catch (error) {
