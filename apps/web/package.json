@@ -5,13 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "backend": "uvicorn src.algorithm.face_detection:app --reload",
-    "start": "concurrently \"npm:dev\" \"npm:backend\"",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2",
     "vite": "^6.2.0"
   },
   "dependencies": {
